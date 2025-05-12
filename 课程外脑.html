@@ -1,0 +1,399 @@
+<!DCTYPE>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>课程外脑</title>
+    <style>
+        body {
+            line-height: 1.6;
+            padding: 20px;
+            background-color:lightblue
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+
+        h2 {
+            color: blue;
+        }
+
+        pre {
+            background-color: skyblue;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Python知识点与图片展示</h1>
+    <h2>基础概念</h2>
+    <p>·代码（块）、输入、输出、变量、常量、转义字符</p >
+    <p>·整型、浮点型、逻辑运算、位运算、布尔数、布尔表达式、关键字、判断、缩进、（非）空值、嵌套</p >
+    <p>·数据结构、索引、切片、追加、字典</p >
+    <p>·循环、遍历、条件循环、边界条件、死循环、break与continue</p >
+    <p>·匿名、形参、实参、内置函数、必选参数、匿名函数、递归</p >
+    <p>·类与对象、属性与方法、模块、路径、文件后缀、网络爬虫、数据分析、数据可视化</p >
+    <img src="https://img.picui.cn/free/2025/05/12/682144d587c12.png" alt="知识梳理图" width="1000px" height="800px">
+    <img src="https://img.picui.cn/free/2025/05/12/682144dace241.png" alt="知识梳理图" width="1000px" height="800px">
+    <h2>数据类型</h2>
+    <p>包含数值、序列、文本序列、映射、集合类型</p >
+    <p><b>*列表、元组、集合、字典</b></p >
+    <img src="https://img.picui.cn/free/2025/05/12/682144d552d2a.png" alt="知识梳理图" width="1000px" height="800px">
+    <img src="https://img.picui.cn/free/2025/05/12/682144d566ad3.png" alt="知识梳理图" width="1000px" height="800px">
+    <h2>流程控制</h2>
+    <p>for循环、while循环、if-elif-else分支语句 </p>
+    <p>例：</p >
+    <pre><code>for item in my_list:
+    print(item)
+</code></pre>
+    <pre><code>while True:
+    print(True)
+</code></pre>
+    <pre><code>i = int(input())
+if i < 0:
+    print("负数")
+elif i = 0:
+    print("零")
+else:
+    print("正数")
+</code></pre>
+    <img src="https://img.picui.cn/free/2025/05/12/682144da82cd9.png" alt="知识梳理图" width="1000px" height="800px">
+    <h2>函数</h2>
+    <p>以 <code>def</code> 定义，支持多种参数传递，如：</p >
+    <pre><code>def add(a, b):
+    return a + b
+</code></pre>
+    <img src="https://img.picui.cn/free/2025/05/12/682144d4f2629.png" alt="知识梳理图" width="1000px" height="800px">
+    <h2>面向对象编程</h2>
+    <p>类、属性、方法与对象，以及构造、继承、多态和封装，如“古怪蛋糕”：</p >
+    <pre><code>class Xcake:
+    name=""
+    color=['r','y','b']
+    shape='triangle'
+    def eat(self):
+        return'drink'
+from Xcake import Xcake
+cake = Xcake()
+print("蛋糕颜色有",cake.color)
+print("吃蛋糕的方法是",cake.eat())
+</code></pre>
+    <h2>文件操作</h2>
+    <p>用 <code>open()</code> 函数进行文件的读（<code>read()</code> 等）写（<code>write()</code> 等）操作。</p >
+    <img src="https://img.picui.cn/free/2025/05/12/682144da7398b.png" alt="知识梳理图" width="1000px" height="800px">
+    <h2>作品展示</h2>
+    <p><i>作业一：校生游戏</i></p>
+    <pre><code>import random
+print("欢迎来到大学校园生活模拟游戏！")
+name = input("请为您的角色起名：")
+print("请自由分配你的属性点(请输入整数）")
+points = 100
+attributes = ["学术能力", "社交能力", "体质健康", "心理健康"]
+assigned_points = [0] * 4
+count = 0
+while True:
+    for i, attr in enumerate(attributes):
+        while True:
+            print(f"当前剩余点数: {points}")
+            assigned = int(input(f"请输入分配给 {attr} 的点数: "))
+            if assigned < 0:
+                print("分配的点数不能为负数，请重新输入。")
+                continue
+            if assigned > points:
+                print(f"分配的点数不能超过剩余的 {points} 点，请重新输入。")
+                continue
+            assigned_points[i] = assigned
+            points -= assigned
+            count += 1
+            break
+    if count == len(attributes):
+        break
+print("分配结果如下：")
+for attr, pts in zip(attributes, assigned_points):
+    print(f"{attr}: {pts} 点")
+if assigned_points[2] < 10 or assigned_points[3] < 10:
+    print("你的身体状况很差，被送入了医院。")
+    print("这学期你在医院里养病。")
+    credits = 0
+    volunteer_count = 0
+    hosipitalized = 16
+else:
+    credits = 0
+    volunteer_count = 0
+    hosipitalized = 0
+    choices = 16
+    a = 0
+    continuous_study = 0
+    for i in range(choices):
+        print(f"离学期结束还有{choices - i} 周。")
+        print("请选择本周你要进行的活动：")
+        print("1. 学习")
+        print("2. 参加社交活动")
+        print("3. 参加志愿者服务")
+        print("4. 放松一下")
+        print("5. 进行体育运动")
+        choice_str = input("请输入你的选择：")
+        choice = int(choice_str)
+        if choice <= 0 or choice >= 6:
+            print("请输入有效的选择。")
+            continue
+        if choice == 1:
+            increase = random.randint(1, 5)
+            assigned_points[0] += increase
+            print(f"你认真学习，学术能力增加了 {increase} 点。")
+            a += 1
+            continuous_study += 1
+            if a % 3 == 0:
+                print("你完成了一门课，获得三学分。")
+                credits += 3
+            if continuous_study >= 6:
+                target = random.choice([2, 3])
+                decrease = random.randint(1, 5)
+                assigned_points[target] -= decrease
+                print(f"你的 {attributes[target]} 降低了 {decrease} 点。")
+            if assigned_points[3] < 15:
+                print("你的心理健康低于十五，你的状态让你很难好好学习")
+                assigned_points[0] -= increase
+        elif choice == 2:
+            increase = random.randint(1, 5)
+            assigned_points[1] += increase
+            print(f"你积极参加社交活动，社交能力增加了 {increase} 点。")
+            continuous_study = 0
+        elif choice == 3:
+            volunteer_count += 1
+            target1, target2 = random.sample([1, 3], 2)
+            increase1 = random.randint(1, 3)
+            increase2 = random.randint(1, 3)
+            assigned_points[target1] += increase1
+            assigned_points[target2] += increase2
+            print(f"你积极参加志愿者服务，{attributes[target1]} 增加了 {increase1} 点，{attributes[target2]} 增加了 {increase2} 点。")
+            continuous_study = 0
+            if increase1 == increase2:
+                credits += 1
+        elif choice == 4:
+            increase = random.randint(1, 5)
+            assigned_points[3] += increase
+            print(f"你决定让自己放松一下。")
+            print("你度过了比较轻松的一周，心理健康增加了 {increase} 点。")
+            continuous_study = 0
+        else:
+            increase = random.randint(1, 5)
+            assigned_points[2] += increase
+            print(f"你的体质健康值增加了 {increase} 点。")
+            continuous_study = 0
+        if assigned_points[2] < 15:
+            print("你的体质健康已经低于15，不幸生病，本周只好在医院度过。")
+            choices -= 1
+            assigned_points[2] = 16
+            continuous_study = 0
+    print("当前属性和学分情况：")
+    for attr, pts in zip(attributes, assigned_points):
+        print(f"{attr}: {pts} 点")
+    print(f"学分: {credits}")
+print("这学期结束了。")
+if assigned_points[0] >= 50 and credits >= 9:
+    print("获得成就：学术之星")
+if assigned_points[1] >= 50:
+    print("获得成就：社交达人")
+if volunteer_count >= 4:
+    print("获得成就：优秀志愿者")
+if hospitalized >= 3:
+    print("获得成就：脆皮大学生（请注意身体哦）")
+print("最终属性和学分情况：")
+for attr, pts in zip(attributes, assigned_points):
+    print(f"{attr}: {pts} 点")
+print(f"学分: {credits}")
+</code></pre>
+    <p><i>作业二：数列求和库</i></p>
+    <p><u>等差数列求和</u></p>
+    <pre><code>class CalculateSum:
+    def __init__(self):
+        self.a1 = float(input("请输入等差数列的首项a："))
+        self.d = float(input("请输入等差数列的公差d："))
+        self.n = int(input("请输入要求和的项数n："))
+    def sum_dengcha(self):
+        an = self.a1 + (self.n - 1) * self.d
+        sum_value = self.n * (self.a1 + an) / 2
+        return sum_value
+obj = CalculateSum()
+result = obj.sum_dengcha()
+print(f"等差数列前n项和为: {result}")
+</code></pre>
+    <pre><code>a1 = float(input("请输入等差数列的首项a："))
+d = float(input("请输入等差数列的公差d："))
+n = int(input("请输入要求和的项数n："))
+sum_value=0
+for i in range(1,n+1):
+    sum_value = sum_value + a1 + d*(i-1)
+print(f"等差数列前n项和为: {sum_value}")
+</code></pre>
+    <pre><code>a1 = float(input("请输入等差数列的首项a："))
+d = float(input("请输入等差数列的公差d："))
+n = int(input("请输入要求和的项数n："))
+sum_value=0
+i=1
+while i<=n:
+    sum_value = sum_value + a1 + d*(i-1)
+    i+=1
+print(f"等差数列前n项和为: {sum_value}")
+</code></pre>
+    <pre><code>a1 = float(input("请输入等差数列的首项a："))
+d = float(input("请输入等差数列的公差d："))
+n = int(input("请输入要求和的项数n："))
+list_dengcha = [a1 + i * d for i in range(n)]
+sum_value = sum(list_dengcha)
+print(f"等差数列前n项和为: {sum_value}")
+</code></pre>
+    <p><u>等比数列求和</u></p>
+    <pre><code>a1 = float(input("请输入等比数列的首项a："))
+q = float(input("请输入等比数列的公比d："))
+n = int(input("请输入要求和的项数n："))
+sum_value=0
+a = a1
+for i in range(1,n+1):
+    sum_value += a
+    a *= q
+print(f"等比数列前n项和为: {sum_value}")
+</code></pre>
+    <pre><code>a1 = float(input("请输入等比数列的首项a："))
+q = float(input("请输入等比数列的公比q："))
+n = int(input("请输入要求和的项数n："))
+sum_value=0
+a = a1
+i = 1
+while i<=n:
+    sum_value += a
+    a *= q
+    i += 1
+print(f"等比数列前n项和为: {sum_value}")
+</code></pre>
+    <pre><code>class CalculateSum:
+    def __init__(self):
+        self.a1 = float(input("请输入等比数列的首项a："))
+        self.q = float(input("请输入等比数列的公比q："))
+        self.n = int(input("请输入要求和的项数n："))
+    def sum_dengbi(self):
+        an = self.a1 *self.q* (self.n - 1)
+        if self.q != 1:
+            sum_value = (self.a1 - an*self.n) / (1 - self.q)
+        else:
+            sum_value = 1
+        return sum_value
+obj = CalculateSum()
+result = obj.sum_dengbi()
+print(f"等比数列前n项和为: {result}")
+</code></pre>
+    <pre><code>a1 = float(input("请输入等比数列的首项a："))
+q = float(input("请输入等比数列的公比q："))
+n = int(input("请输入要求和的项数n："))
+list_dengbi = [a1*q**i for i in range(n)]
+sum_value = sum(list_dengbi)
+print(f"等比数列前n项和为: {sum_value}")
+</code></pre>
+    <p><u>斐波那契数列求和</u></p>
+    <pre><code>a1,a2 = 1,1
+n = int(input("请输入要求和的项数n："))
+sum_value=0
+a,b = a1,a2
+for i in range(1,n+1):
+    sum_value += b
+    if i >= 2:
+        b += a
+        a = b - a
+print(f"斐波那契数列前n项和为: {sum_value}")
+</code></pre>
+    <pre><code>a1,a2 = 1,1
+n = int(input("请输入要求和的项数n："))
+sum_value=0
+a,b = a1,a2
+i = 1
+while i<=n:
+    sum_value += a
+    i += 1
+    a,b = b,a+b
+print(f"斐波那契数列前n项和为: {sum_value}")
+</code></pre>
+    <pre><code>import math
+class CalculateSum:
+    def __init__(self):
+        self.n = int(input("请输入要求和的项数n："))
+    def sum_Fibonacci(self):
+        sum_value = 0
+        b = math.sqrt(5)
+        for i in range(self.n+1):
+           c = ((1 + b)/2)**i - ((1 - b)/2)**i
+           ai = c/b
+           sum_value += int(ai)
+        return sum_value
+obj = CalculateSum()
+result = obj.sum_Fibonacci()
+print(f"斐波那契数列前n项和为: {result}")
+</code></pre>
+    <pre><code>a1,a2 = 1,1
+n = int(input("请输入要求和的项数n："))
+sum_value=0
+list_Fibonacci = [1,1]
+a,b = a1,a2
+if n >= 3:
+    for i in range(3,n+1):
+        list_Fibonacci.append(list_Fibonacci[-1]+list_Fibonacci[-2])
+sum_value = sum(list_Fibonacci)
+print(f"斐波那契数列前n项和为: {sum_value}")
+</code></pre>
+    <p><i>作业三：数据分析</i></p>
+    <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+data = pd.read_excel('数据.xls')
+country_names = input("请输入要分析的多个国家名称（用英文逗号隔开）: ")
+countries = [country.strip() for country in country_names.split(',')]
+selected_data = data[data['Country Name'].isin(countries)]
+if selected_data.empty:
+    print(f"未找到 {country_names} 这些国家的数据，请检查输入是否正确。")
+else:
+    year_input = input(f"请输入要分析的年份（1960-2024）（用英文逗号隔开）: ")
+    years = [int(year.strip()) for year in year_input.split(',')]
+    years = [str(year) for year in years]
+    filtered_data = selected_data[selected_data[years].notnull().any(axis=1)]
+    if filtered_data.empty:
+        print(f"{country_names} 这些国家中未找到 {year_input} 年份的数据，请检查输入是否正确。")
+    else:
+        print(filtered_data[years].describe())
+        sns.set(style="whitegrid")
+        plt.figure(figsize=(10, 6))
+        for year in years:
+            sns.histplot(filtered_data[year].dropna(), kde=True, color='skyblue', alpha=0.6, label=year)
+        plt.title(f"{country_names} 在 {year_input} 年份人口超过100万的城市群中的人口（占总人口的百分比）分布")
+        plt.xlabel('百分比')
+        plt.ylabel('频率')
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
+        plt.figure(figsize=(10, 6))
+        for country in countries:
+            country_data = filtered_data[filtered_data['Country Name'] == country]
+            for year in years:
+                x = country_data.index[country_data[year].notnull()]
+                y = country_data[year].dropna()
+                if not x.empty and not y.empty:
+                    sns.lineplot(x=x, y=y, label=f"{country} - {year}")
+        plt.title(f"{country_names} 在 {year_input} 年份人口超过100万的城市群中的人口（占总人口的百分比）随时间变化")
+        plt.xlabel('年份')
+        plt.ylabel('百分比')
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
+</code></pre>
+</body>
+
+</html>
